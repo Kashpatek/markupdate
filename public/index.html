@@ -289,7 +289,7 @@ body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--tx)
 
 <li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
 <div class="it">Fill in empty Charts section with chart series color order</div>
-<div class="id">Currently blank. Add: "Chart series order: Amber 400, Blue 400, Amber 600, Blue 600, Amber 300, Blue 300, Teal, Coral. Alternate warm/cool. See Palettes tab for full ramp hex codes."</div>
+<div class="id">Currently blank. Add: "12-series chart order: S1 Amber #F7B041, S2 Blue #0B86D1, S3 Teal #2EAD8E, S4 Coral #E06347, S5 Violet #905CCB, S6 Cyan #26C9D8, S7 Crimson #D1334A, S8 Sage #56BC42, S9 Rose #D34574, S10 Sunflower #E8C83A, S11 Indigo #495BCE, S12 Magenta #BF49B5. Use S1-S4 for small charts, add as needed."</div>
 </div></li>
 
 <li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
@@ -548,52 +548,81 @@ body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--tx)
 </div>
 
 <div class="pv" id="pal-colorful">
-<div class="ramp-sec"><div class="ramp-label">Amber #F7B041 (Analysis)</div><div class="ramp">
-<div class="chip"><div class="chip-color" style="background:#7B5820"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#7B5820</div></div></div>
-<div class="chip"><div class="chip-color core" style="background:#F7B041"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#F7B041</div><div class="chip-tag">CORE</div></div></div>
-<div class="chip"><div class="chip-color" style="background:#F9C370"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#F9C370</div></div></div>
-<div class="chip"><div class="chip-color" style="background:#FDF3E2"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#FDF3E2</div></div></div>
+
+<div class="ramp-sec"><div class="ramp-label">2 Primary</div><div class="ramp">
+<div class="chip"><div class="chip-color core" style="background:#F7B041"></div><div class="chip-info"><div class="chip-name">Amber</div><div class="chip-hex" onclick="copyHex(this)">#F7B041</div><div class="chip-tag">S1 · PRIMARY</div></div></div>
+<div class="chip"><div class="chip-color core" style="background:#0B86D1"></div><div class="chip-info"><div class="chip-name">Blue</div><div class="chip-hex" onclick="copyHex(this)">#0B86D1</div><div class="chip-tag">S2 · PRIMARY</div></div></div>
 </div></div>
-<div class="ramp-sec"><div class="ramp-label">Blue #0B86D1 (News)</div><div class="ramp">
-<div class="chip"><div class="chip-color" style="background:#054368"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#054368</div></div></div>
-<div class="chip"><div class="chip-color core" style="background:#0B86D1"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#0B86D1</div><div class="chip-tag">CORE</div></div></div>
-<div class="chip"><div class="chip-color" style="background:#48A4DC"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#48A4DC</div></div></div>
-<div class="chip"><div class="chip-color" style="background:#DAECF8"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#DAECF8</div></div></div>
+
+<div class="ramp-sec"><div class="ramp-label">2 Extended (brand accents)</div><div class="ramp">
+<div class="chip"><div class="chip-color core" style="background:#2EAD8E"></div><div class="chip-info"><div class="chip-name">Teal</div><div class="chip-hex" onclick="copyHex(this)">#2EAD8E</div><div class="chip-tag">S3 · EXTENDED</div></div></div>
+<div class="chip"><div class="chip-color core" style="background:#E06347"></div><div class="chip-info"><div class="chip-name">Coral</div><div class="chip-hex" onclick="copyHex(this)">#E06347</div><div class="chip-tag">S4 · EXTENDED</div></div></div>
 </div></div>
-<div class="ramp-sec"><div class="ramp-label">Teal #2EAD8E (Capital, hold)</div><div class="ramp">
-<div class="chip"><div class="chip-color" style="background:#175647"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#175647</div></div></div>
-<div class="chip"><div class="chip-color core" style="background:#2EAD8E"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#2EAD8E</div><div class="chip-tag">CORE</div></div></div>
-<div class="chip"><div class="chip-color" style="background:#62C1AA"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#62C1AA</div></div></div>
-<div class="chip"><div class="chip-color" style="background:#DFF2EE"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#DFF2EE</div></div></div>
+
+<div class="ramp-sec"><div class="ramp-label">4 Chart Primes (graphics + data viz only)</div><div class="ramp">
+<div class="chip"><div class="chip-color" style="background:#905CCB"></div><div class="chip-info"><div class="chip-name">Violet</div><div class="chip-hex" onclick="copyHex(this)">#905CCB</div><div class="chip-tag">S5</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#26C9D8"></div><div class="chip-info"><div class="chip-name">Cyan</div><div class="chip-hex" onclick="copyHex(this)">#26C9D8</div><div class="chip-tag">S6</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#D1334A"></div><div class="chip-info"><div class="chip-name">Crimson</div><div class="chip-hex" onclick="copyHex(this)">#D1334A</div><div class="chip-tag">S7</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#56BC42"></div><div class="chip-info"><div class="chip-name">Sage</div><div class="chip-hex" onclick="copyHex(this)">#56BC42</div><div class="chip-tag">S8</div></div></div>
 </div></div>
-<div class="ramp-sec"><div class="ramp-label">Coral #E06347 (Alerts, urgency)</div><div class="ramp">
-<div class="chip"><div class="chip-color" style="background:#703123"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#703123</div></div></div>
-<div class="chip"><div class="chip-color core" style="background:#E06347"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#E06347</div><div class="chip-tag">CORE</div></div></div>
-<div class="chip"><div class="chip-color" style="background:#E78A75"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#E78A75</div></div></div>
-<div class="chip"><div class="chip-color" style="background:#FAE7E3"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#FAE7E3</div></div></div>
+
+<div class="ramp-sec"><div class="ramp-label">4 Chart Extended (9+ series)</div><div class="ramp">
+<div class="chip"><div class="chip-color" style="background:#D34574"></div><div class="chip-info"><div class="chip-name">Rose</div><div class="chip-hex" onclick="copyHex(this)">#D34574</div><div class="chip-tag">S9</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#E8C83A"></div><div class="chip-info"><div class="chip-name">Sunflower</div><div class="chip-hex" onclick="copyHex(this)">#E8C83A</div><div class="chip-tag">S10</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#495BCE"></div><div class="chip-info"><div class="chip-name">Indigo</div><div class="chip-hex" onclick="copyHex(this)">#495BCE</div><div class="chip-tag">S11</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#BF49B5"></div><div class="chip-info"><div class="chip-name">Magenta</div><div class="chip-hex" onclick="copyHex(this)">#BF49B5</div><div class="chip-tag">S12</div></div></div>
 </div></div>
-<div class="ramp-sec"><div class="ramp-label">Grey #3D3D3D (Structural)</div><div class="ramp">
-<div class="chip"><div class="chip-color" style="background:#1E1E1E"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#1E1E1E</div></div></div>
-<div class="chip"><div class="chip-color core" style="background:#3D3D3D"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#3D3D3D</div><div class="chip-tag">CORE</div></div></div>
-<div class="chip"><div class="chip-color" style="background:#6D6D6D"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#6D6D6D</div></div></div>
-<div class="chip"><div class="chip-color" style="background:#E1E1E1"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#E1E1E1</div></div></div>
+
+<div class="ramp-sec"><div class="ramp-label">1 Neutral</div><div class="ramp">
+<div class="chip"><div class="chip-color core" style="background:#3D3D3D"></div><div class="chip-info"><div class="chip-name">Grey</div><div class="chip-hex" onclick="copyHex(this)">#3D3D3D</div><div class="chip-tag">STRUCTURAL</div></div></div>
 </div></div>
-<p style="font-size:9px;color:var(--mt);margin:12px 0 6px">Chart series (up to 8), warm/cool alternation:</p>
+
+<p style="font-size:9px;color:var(--mt);margin:14px 0 6px">Full 12-series chart preview:</p>
 <div class="chart-row">
-<div class="chart-bar" style="background:#F7B041;height:95%"></div><div class="chart-bar" style="background:#0B86D1;height:80%"></div><div class="chart-bar" style="background:#AC7B2D;height:65%"></div><div class="chart-bar" style="background:#075D92;height:55%"></div><div class="chart-bar" style="background:#F9C370;height:45%"></div><div class="chart-bar" style="background:#48A4DC;height:72%"></div><div class="chart-bar" style="background:#2EAD8E;height:60%"></div><div class="chart-bar" style="background:#E06347;height:50%"></div>
+<div class="chart-bar" style="background:#F7B041;height:95%"></div>
+<div class="chart-bar" style="background:#0B86D1;height:82%"></div>
+<div class="chart-bar" style="background:#2EAD8E;height:68%"></div>
+<div class="chart-bar" style="background:#E06347;height:58%"></div>
+<div class="chart-bar" style="background:#905CCB;height:75%"></div>
+<div class="chart-bar" style="background:#26C9D8;height:50%"></div>
+<div class="chart-bar" style="background:#D1334A;height:62%"></div>
+<div class="chart-bar" style="background:#56BC42;height:45%"></div>
+<div class="chart-bar" style="background:#D34574;height:70%"></div>
+<div class="chart-bar" style="background:#E8C83A;height:40%"></div>
+<div class="chart-bar" style="background:#495BCE;height:55%"></div>
+<div class="chart-bar" style="background:#BF49B5;height:48%"></div>
 </div>
-<div style="display:flex;gap:8px;flex-wrap:wrap;font-size:8px;color:var(--mt);font-family:'JetBrains Mono',monospace">
-<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#F7B041;vertical-align:middle;margin-right:2px"></span>A400</span>
-<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#0B86D1;vertical-align:middle;margin-right:2px"></span>B400</span>
-<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#AC7B2D;vertical-align:middle;margin-right:2px"></span>A600</span>
-<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#075D92;vertical-align:middle;margin-right:2px"></span>B600</span>
-<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#F9C370;vertical-align:middle;margin-right:2px"></span>A300</span>
-<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#48A4DC;vertical-align:middle;margin-right:2px"></span>B300</span>
-<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#2EAD8E;vertical-align:middle;margin-right:2px"></span>Teal</span>
-<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#E06347;vertical-align:middle;margin-right:2px"></span>Coral</span>
+<div style="display:flex;gap:6px;flex-wrap:wrap;font-size:7px;color:var(--mt);font-family:'JetBrains Mono',monospace">
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#F7B041;vertical-align:middle;margin-right:2px"></span>S1 Amber</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#0B86D1;vertical-align:middle;margin-right:2px"></span>S2 Blue</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#2EAD8E;vertical-align:middle;margin-right:2px"></span>S3 Teal</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#E06347;vertical-align:middle;margin-right:2px"></span>S4 Coral</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#905CCB;vertical-align:middle;margin-right:2px"></span>S5 Violet</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#26C9D8;vertical-align:middle;margin-right:2px"></span>S6 Cyan</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#D1334A;vertical-align:middle;margin-right:2px"></span>S7 Crimson</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#56BC42;vertical-align:middle;margin-right:2px"></span>S8 Sage</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#D34574;vertical-align:middle;margin-right:2px"></span>S9 Rose</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#E8C83A;vertical-align:middle;margin-right:2px"></span>S10 Sunflower</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#495BCE;vertical-align:middle;margin-right:2px"></span>S11 Indigo</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#BF49B5;vertical-align:middle;margin-right:2px"></span>S12 Magenta</span>
 </div>
-<div class="ug" style="margin-top:14px"><div class="uc"><h4>Dark "tinted" template</h4><p>Amber + blue ramps only. Grey 700-900 bg. Circuit-trace. Core SA look.</p></div><div class="uc"><h4>Colorful template</h4><p>Full 5-color palette. Teal/coral accent cards. Events, social, engagement decks.</p></div><div class="uc"><h4>Content type colors</h4><p>Amber=Analysis, Blue=News, Both=General, Teal=Capital (hold), Coral=Alerts.</p></div><div class="uc"><h4>Social backdrops</h4><p>Single color on dark per type. Colorful uses gradient between 2+ brand colors.</p></div></div>
-<div class="qr"><b>Cores:</b> <span style="color:#F7B041">#F7B041</span> · <span style="color:#0B86D1">#0B86D1</span> · #3D3D3D · <span style="color:#2EAD8E">#2EAD8E</span> · <span style="color:#E06347">#E06347</span><br><b>Chart:</b> A400→B400→A600→B600→A300→B300→Teal→Coral</div>
+
+<div class="ug" style="margin-top:14px">
+<div class="uc"><h4>Content type colors</h4><p>Amber=Analysis, Blue=News, Both=General, Teal=Capital (hold), Coral=Alerts.</p></div>
+<div class="uc"><h4>Chart usage</h4><p>S1-S4 for 2-4 series. Add S5-S8 for 5-8. Add S9-S12 only when 9+ series needed. Never skip ahead.</p></div>
+<div class="uc"><h4>Dark template</h4><p>Use tinted palette (Amber+Blue ramps). Chart primes/extended still apply for data viz on dark backgrounds.</p></div>
+<div class="uc"><h4>Colorful template</h4><p>Full 12-color system available. Teal/coral for accent cards, chart colors for data viz and infographics.</p></div>
+</div>
+
+<div class="qr">
+<b>Primary:</b> <span style="color:#F7B041">#F7B041</span> Amber · <span style="color:#0B86D1">#0B86D1</span> Blue<br>
+<b>Extended:</b> <span style="color:#2EAD8E">#2EAD8E</span> Teal · <span style="color:#E06347">#E06347</span> Coral<br>
+<b>Chart Prime:</b> <span style="color:#905CCB">#905CCB</span> Violet · <span style="color:#26C9D8">#26C9D8</span> Cyan · <span style="color:#D1334A">#D1334A</span> Crimson · <span style="color:#56BC42">#56BC42</span> Sage<br>
+<b>Chart Ext:</b> <span style="color:#D34574">#D34574</span> Rose · <span style="color:#E8C83A">#E8C83A</span> Sunflower · <span style="color:#495BCE">#495BCE</span> Indigo · <span style="color:#BF49B5">#BF49B5</span> Magenta<br>
+<b>Neutral:</b> #3D3D3D Grey<br>
+<b>Series order:</b> S1→S2→S3→S4→S5→S6→S7→S8→S9→S10→S11→S12
+</div>
+
 </div>
 </div>
 
@@ -696,7 +725,7 @@ async function load(){
 }
 function switchTab(id){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.tp').forEach(t=>t.classList.remove('on'));document.querySelector(`.tab[onclick*="${id}"]`).classList.add('on');document.getElementById('tab-'+id).classList.add('on');if(id==='timeline')updateTimeline()}
 function switchPal(id){document.querySelectorAll('.pt').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.pv').forEach(t=>t.classList.remove('on'));document.querySelector(`.pt[onclick*="${id}"]`).classList.add('on');document.getElementById('pal-'+id).classList.add('on')}
-function copyHex(el){navigator.clipboard.writeText(el.textContent).then(()=>{const o=el.textContent;el.textContent='copied!';el.style.color='var(--ok)';setTimeout(()=>{el.textContent=o;el.style.color=''},700)})}
+function copyHex(el){const hex=el.textContent;navigator.clipboard.writeText(hex).then(()=>{el.textContent='copied!';el.style.color='var(--ok)';setTimeout(()=>{el.textContent=hex;el.style.color=''},700)}).catch(()=>{el.textContent=hex})}
 function updateTimeline(){const now=new Date(),wkS=new Date('2026-04-05T09:00:00'),wkE=new Date('2026-04-05T21:30:00'),fwE=new Date('2026-04-10T11:00:00');document.getElementById('tlTime').textContent=now.toLocaleString('en-US',{weekday:'long',hour:'numeric',minute:'2-digit',hour12:true});const wP=Math.min(100,Math.max(0,((now-wkS)/(wkE-wkS))*100)),fP=Math.min(100,Math.max(0,((now-wkS)/(fwE-wkS))*100));document.getElementById('wkFill').style.width=wP+'%';document.getElementById('fwFill').style.width=fP+'%';document.getElementById('wkPct').textContent=Math.round(wP)+'%';document.getElementById('fwPct').textContent=Math.round(fP)+'%';const hM=Math.max(0,(wkE-now)/36e5),hT=Math.max(0,(fwE-now)/36e5);document.getElementById('tlSub').textContent=hM>0?Math.round(hM)+'h left in sprint · '+Math.round(hT)+'h to Thursday':'';const sa=document.getElementById('squeezeAlert');if(hM>0&&hM<4){sa.classList.add('show');document.getElementById('squeezeMsg').textContent='Under '+Math.round(hM)+'h left in today\'s sprint. Cut scope if needed.'}else if(hM<=0&&hT>0&&hT<24){sa.classList.add('show');document.getElementById('squeezeMsg').textContent='Under '+Math.round(hT)+'h to presentation. Focus slides + video.'}document.querySelectorAll('.tl-block').forEach(b=>{const s=new Date(b.dataset.start),e=new Date(b.dataset.end);b.classList.remove('done','active');if(now>=e)b.classList.add('done');else if(now>=s&&now<e)b.classList.add('active')});[{id:'satStatus',d:'2026-04-05'},{id:'monStatus',d:'2026-04-07'},{id:'tueStatus',d:'2026-04-08'},{id:'wedStatus',d:'2026-04-09'},{id:'thuStatus',d:'2026-04-10'}].forEach(x=>{const ds=new Date(x.d+'T00:00:00'),de=new Date(x.d+'T23:59:59'),el=document.getElementById(x.id);if(now>de){el.textContent='done';el.style.background='rgba(46,173,142,.08)';el.style.color='var(--ok)'}else if(now>=ds&&now<=de){el.textContent='today';el.style.background='rgba(247,176,65,.12)';el.style.color='var(--am)'}else{el.textContent='upcoming'}})}
 
 // POMODORO
