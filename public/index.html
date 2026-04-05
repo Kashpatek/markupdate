@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>SA Rebrand Hub v5</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--am:#F7B041;--bl:#0B86D1;--tl:#2EAD8E;--co:#E06347;--gy:#3D3D3D;--bg:#09090e;--cd:#101018;--cd2:#15151f;--bd:#1a1a28;--tx:#dddde5;--mt:#5e5e76;--ok:#2EAD8E;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;-webkit-font-smoothing:antialiased}
+.bar{height:4px;background:linear-gradient(90deg,var(--am),var(--bl),var(--tl));position:sticky;top:0;z-index:100}
+.w{max-width:1100px;margin:0 auto;padding:24px 18px 80px}
+.hdr{margin-bottom:16px}
+.hl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--am);margin-bottom:5px}
+.hdr h1{font-size:26px;font-weight:700;letter-spacing:-.5px;background:linear-gradient(135deg,#fff,var(--am));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:3px}
+.hdr p{color:var(--mt);font-size:11px}
+.pw{background:var(--bd);border-radius:4px;height:5px;margin:12px 0 3px;overflow:hidden}
+.pb{height:100%;background:linear-gradient(90deg,var(--am),var(--bl));border-radius:4px;transition:width .4s;width:0%}
+.pl{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mt);text-align:right;margin-bottom:14px}
+.tabs{display:flex;gap:2px;margin-bottom:16px;border-bottom:1px solid var(--bd)}
+.tab{padding:8px 16px;font-size:11px;font-weight:500;color:var(--mt);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;user-select:none}
+.tab:hover{color:var(--tx)}.tab.on{color:#fff;border-bottom-color:var(--am)}
+.tp{display:none}.tp.on{display:block}
+.dl-row{display:flex;gap:8px;margin-bottom:18px}
+.dl{flex:1;padding:10px 14px;border-radius:7px;border:1px solid var(--bd)}
+.dl.a{background:linear-gradient(135deg,rgba(247,176,65,.05),transparent);border-color:rgba(247,176,65,.15)}
+.dl.b{background:linear-gradient(135deg,rgba(11,134,209,.05),transparent);border-color:rgba(11,134,209,.15)}
+.dl .ll{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:2px}
+.dl.a .ll{color:var(--am)}.dl.b .ll{color:var(--bl)}
+.dl .dd{font-size:14px;font-weight:600;color:#fff}
+.dl .ds{font-size:9px;color:var(--mt);margin-top:1px}
+.alert{padding:9px 14px;border-radius:7px;margin-bottom:16px;border:1px solid rgba(224,99,71,.2);background:linear-gradient(135deg,rgba(224,99,71,.06),transparent)}
+.alert b{font-size:11px;color:var(--co);display:block;margin-bottom:2px}
+.alert span{font-size:9px;color:var(--mt);line-height:1.5}
+.alert code{font-family:'JetBrains Mono',monospace;font-size:8px;background:rgba(255,255,255,.04);padding:0 3px;border-radius:2px}
+.sec{margin-bottom:24px}
+.sh{display:flex;align-items:center;gap:8px;margin-bottom:9px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
+.sn{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:500;width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:3px;flex-shrink:0}
+.sn.a{background:var(--am);color:#000}.sn.b{background:var(--bl);color:#fff}.sn.t{background:var(--tl);color:#000}.sn.c{background:var(--co);color:#fff}.sn.g{background:var(--gy);color:#fff}
+.st{font-size:14px;font-weight:600;color:#fff}
+.sd{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--mt);padding:2px 5px;background:rgba(255,255,255,.03);border-radius:3px}
+.cl{list-style:none}
+.ci{display:flex;align-items:flex-start;gap:8px;padding:8px 11px;background:var(--cd);border:1px solid var(--bd);border-radius:6px;margin-bottom:3px;cursor:pointer;transition:all .12s;user-select:none}
+.ci:hover{background:var(--cd2)}.ci.ck{opacity:.35}.ci.ck .it{text-decoration:line-through;color:var(--mt)}
+.cb{width:14px;height:14px;border:1.5px solid var(--mt);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .12s}
+.ci.ck .cb{background:var(--ok);border-color:var(--ok)}
+.cb svg{width:8px;height:8px;opacity:0}.ci.ck .cb svg{opacity:1}
+.ic{flex:1}.it{font-size:11px;font-weight:500;color:#fff;line-height:1.3}
+.id{font-size:9px;color:var(--mt);margin-top:2px;line-height:1.4}
+.id code{font-family:'JetBrains Mono',monospace;font-size:8px;background:rgba(255,255,255,.04);padding:0 2px;border-radius:1px}
+.tags{display:flex;gap:3px;margin-top:3px;flex-wrap:wrap}
+.tg{font-family:'JetBrains Mono',monospace;font-size:7px;padding:1px 5px;border-radius:2px}
+.tg-r{background:rgba(224,99,71,.1);color:var(--co)}.tg-m{background:rgba(247,176,65,.08);color:var(--am)}.tg-t{background:rgba(11,134,209,.08);color:var(--bl)}.tg-f{background:rgba(46,173,142,.08);color:var(--tl)}.tg-n{background:rgba(11,134,209,.06);color:var(--bl)}.tg-x{background:rgba(100,100,120,.08);color:var(--mt)}
+.subs{margin:3px 0 0 22px;list-style:none}
+.sub{display:flex;align-items:center;gap:6px;padding:3px 7px;background:rgba(255,255,255,.012);border-radius:3px;margin-bottom:2px;cursor:pointer;user-select:none;font-size:9px;color:var(--mt);transition:all .1s}
+.sub:hover{background:rgba(255,255,255,.025)}.sub.ck{opacity:.3;text-decoration:line-through}
+.scb{width:11px;height:11px;border:1.5px solid var(--mt);border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.sub.ck .scb{background:var(--ok);border-color:var(--ok)}
+.scb svg{width:7px;height:7px;opacity:0}.sub.ck .scb svg{opacity:1}
+
+/* SLIDE PLAN */
+.sg{display:grid;grid-template-columns:38px 1fr auto;gap:0;margin-top:8px}
+.sr{display:contents}.sr>*{padding:7px 10px;border-bottom:1px solid var(--bd);display:flex;align-items:center}
+.sr:hover>*{background:rgba(255,255,255,.015)}
+.snum{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mt);justify-content:center}
+.sdesc{font-size:10px;color:var(--tx);flex-direction:column;align-items:flex-start;gap:1px}
+.sdesc strong{color:#fff;font-weight:600;font-size:11px}
+.sdesc .ss{font-size:9px;color:var(--mt)}
+.sact{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1px;text-transform:uppercase;justify-content:flex-end}
+.ak{color:var(--tl)}.ae{color:var(--am)}.an{color:var(--bl)}.ac{color:var(--co)}
+.sl{grid-column:1/-1;padding:12px 10px 4px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--am);border-bottom:1px solid rgba(247,176,65,.15)}
+.cut-note{font-size:9px;color:var(--mt);margin-top:10px;line-height:1.5;padding:8px 10px;background:var(--cd);border:1px solid var(--bd);border-radius:6px}
+.cut-note b{color:var(--co);font-weight:500}
+
+/* REFS */
+.refs{margin-top:20px;padding:14px;background:var(--cd);border:1px solid var(--bd);border-radius:8px}
+.refs h3{font-size:11px;font-weight:600;color:#fff;margin-bottom:8px}
+.refs a{display:block;color:var(--bl);font-size:10px;margin-bottom:4px;text-decoration:none;word-break:break-all}
+.refs a:hover{text-decoration:underline}
+.refs .rd{font-size:9px;color:var(--mt);margin-bottom:8px;margin-top:-2px}
+
+/* PALETTE */
+.pal-toggle{display:flex;gap:3px;margin-bottom:16px}
+.pt{padding:6px 12px;font-size:10px;font-weight:500;border-radius:5px;cursor:pointer;border:1px solid var(--bd);background:var(--cd);color:var(--mt);transition:all .12s;user-select:none;font-family:'Space Grotesk',sans-serif}
+.pt.on{background:var(--am);color:#000;border-color:var(--am)}
+.pv{display:none}.pv.on{display:block}
+.ramp-sec{margin-bottom:18px}
+.ramp-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--mt);margin-bottom:6px}
+.ramp{display:flex;gap:3px;flex-wrap:wrap}
+.chip{flex:1;min-width:60px;max-width:100px}
+.chip-color{height:40px;border-radius:5px 5px 0 0}
+.chip-color.core{box-shadow:0 0 0 2px #fff}
+.chip-info{background:var(--cd);border:1px solid var(--bd);border-top:0;border-radius:0 0 5px 5px;padding:4px 5px}
+.chip-name{font-size:8px;color:var(--tx);font-weight:500}
+.chip-hex{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--mt);cursor:pointer}
+.chip-hex:hover{color:var(--am)}
+.chip-tag{font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--am);margin-top:1px}
+.ug{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px}
+.uc{background:var(--cd);border:1px solid var(--bd);border-radius:6px;padding:10px 12px}
+.uc h4{font-size:10px;font-weight:600;color:#fff;margin-bottom:3px}
+.uc p{font-size:9px;color:var(--mt);line-height:1.4}
+.qr{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--mt);background:var(--cd);border:1px solid var(--bd);border-radius:6px;padding:10px;margin-top:12px;line-height:1.7}
+.qr b{color:var(--tx)}
+.chart-row{display:flex;gap:4px;align-items:flex-end;height:80px;margin:10px 0}
+.chart-bar{border-radius:3px 3px 0 0;flex:1;min-width:0}
+
+/* TIMELINE */
+.tl-now{background:var(--cd);border:1px solid var(--bd);border-radius:8px;padding:14px;margin-bottom:16px}
+.tl-now-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--am);margin-bottom:4px}
+.tl-now-time{font-size:18px;font-weight:600;color:#fff}
+.tl-now-sub{font-size:10px;color:var(--mt);margin-top:2px}
+.tl-meters{display:flex;gap:10px;margin-top:10px}
+.tl-meter{flex:1}
+.tl-meter-label{font-size:8px;color:var(--mt);margin-bottom:2px;font-family:'JetBrains Mono',monospace}
+.tl-meter-bar{height:5px;background:var(--bd);border-radius:3px;overflow:hidden}
+.tl-meter-fill{height:100%;border-radius:3px;transition:width .5s}
+.tl-day{margin-bottom:16px}
+.tl-day-hdr{display:flex;align-items:center;gap:7px;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--bd)}
+.tl-day-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.tl-day-name{font-size:12px;font-weight:600;color:#fff}
+.tl-day-date{font-size:9px;color:var(--mt);margin-left:auto;font-family:'JetBrains Mono',monospace}
+.tl-day-status{font-size:8px;padding:2px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace}
+.tl-block{display:flex;align-items:flex-start;gap:8px;padding:6px 10px;background:var(--cd);border:1px solid var(--bd);border-radius:6px;margin-bottom:3px}
+.tl-time{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mt);min-width:44px;padding-top:1px}
+.tl-task{font-size:10px;color:var(--tx);line-height:1.3;flex:1}
+.tl-task b{color:#fff;font-weight:500}
+.tl-dur{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--mt);background:rgba(255,255,255,.02);padding:1px 4px;border-radius:2px;white-space:nowrap}
+.tl-block.done{opacity:.3}.tl-block.done .tl-task{text-decoration:line-through}
+.tl-block.active{border-color:var(--am);background:rgba(247,176,65,.03)}
+.squeeze-alert{padding:8px 12px;border-radius:6px;margin-bottom:12px;border:1px solid rgba(224,99,71,.18);background:rgba(224,99,71,.04);display:none}
+.squeeze-alert.show{display:block}
+.squeeze-alert span{font-size:10px;color:var(--co)}
+
+/* POMODORO */
+.save-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(16px);font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ok);background:rgba(46,173,142,.08);border:1px solid rgba(46,173,142,.18);padding:4px 12px;border-radius:5px;opacity:0;transition:all .3s;pointer-events:none;z-index:300}
+.save-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.pomo-fab{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--am);color:#000;border:none;cursor:pointer;z-index:200;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(247,176,65,.25);transition:transform .12s,box-shadow .12s}
+.pomo-fab:hover{transform:scale(1.06)}.pomo-fab.active{background:var(--co);box-shadow:0 4px 16px rgba(224,99,71,.25)}
+.pomo-panel{position:fixed;bottom:74px;right:20px;width:260px;background:#101018;border:1px solid var(--bd);border-radius:12px;z-index:200;display:none;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.pomo-panel.open{display:block}
+.pomo-drag{padding:8px 12px;cursor:move;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bd);user-select:none}
+.pomo-drag-title{font-size:9px;font-family:'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase;color:var(--mt)}
+.pomo-close{background:none;border:none;color:var(--mt);cursor:pointer;font-size:12px;padding:0 3px}.pomo-close:hover{color:var(--co)}
+.pomo-body{padding:16px 14px}
+.pomo-mode{display:flex;gap:3px;margin-bottom:12px}
+.pomo-mode-btn{flex:1;padding:4px;font-size:9px;font-weight:500;border-radius:4px;border:1px solid var(--bd);background:transparent;color:var(--mt);cursor:pointer;text-align:center;transition:all .12s;font-family:'Space Grotesk',sans-serif}
+.pomo-mode-btn.on{border-color:var(--am);color:var(--am);background:rgba(247,176,65,.06)}
+.pomo-mode-btn.brk.on{border-color:var(--tl);color:var(--tl);background:rgba(46,173,142,.06)}
+.pomo-ring{width:140px;height:140px;margin:0 auto 12px;position:relative}
+.pomo-ring svg{transform:rotate(-90deg)}
+.pomo-ring-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.pomo-time{font-family:'JetBrains Mono',monospace;font-size:40px;font-weight:500;color:#fff;letter-spacing:-1px;line-height:1}
+.pomo-label{font-size:9px;color:var(--mt);margin-top:3px}
+.pomo-controls{display:flex;gap:4px;justify-content:center}
+.pomo-btn{padding:6px 14px;font-size:10px;font-weight:500;border-radius:5px;border:1px solid var(--bd);background:var(--cd2);color:var(--tx);cursor:pointer;transition:all .1s;font-family:'Space Grotesk',sans-serif}
+.pomo-btn:hover{border-color:rgba(255,255,255,.12)}.pomo-btn.primary{background:var(--am);color:#000;border-color:var(--am)}.pomo-btn.danger{border-color:rgba(224,99,71,.25);color:var(--co)}
+.pomo-stats{padding:10px 14px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;font-size:9px;color:var(--mt)}
+.pomo-stats b{color:var(--tx);font-weight:500}
+.pomo-log{padding:0 14px 10px;max-height:120px;overflow-y:auto}
+.pomo-log-title{font-size:8px;font-family:'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase;color:var(--mt);margin-bottom:4px;padding-top:6px;border-top:1px solid var(--bd)}
+.pomo-log-item{font-size:9px;color:var(--mt);padding:2px 0;display:flex;justify-content:space-between}
+.pomo-log-item .log-task{color:var(--tx)}.pomo-log-item .log-time{font-family:'JetBrains Mono',monospace;font-size:8px}
+@media(max-width:640px){.dl-row{flex-direction:column}.ug{grid-template-columns:1fr}.ramp{flex-wrap:wrap}.chip{min-width:50px}.sg{grid-template-columns:32px 1fr auto}}
+</style></head><body>
+<div class="bar"></div>
+<div class="w">
+<div class="hdr"><div class="hl">Rebrand Command Center v5</div><h1>SemiAnalysis Rebrand Launch</h1><p>Corrected: Amber #F7B041, Blue #0B86D1, Grey #3D3D3D. Full sprint today. Launch Monday AM. Presentation Thu.</p></div>
+<div class="pw"><div class="pb" id="pBar"></div></div>
+<div class="pl" id="pLbl">0 / 0</div>
+
+<div class="tabs">
+<div class="tab on" onclick="switchTab('checklist')">Checklist</div>
+<div class="tab" onclick="switchTab('slides')">Slide Plan</div>
+<div class="tab" onclick="switchTab('palette')">Palettes</div>
+<div class="tab" onclick="switchTab('timeline')">Timeline</div>
+</div>
+
+<!-- ========== TAB 1: CHECKLIST ========== -->
+<div class="tp on" id="tab-checklist">
+<div class="dl-row"><div class="dl a"><div class="ll">Deliverables</div><div class="dd">Monday AM</div><div class="ds">Assets, templates, guidelines</div></div><div class="dl b"><div class="ll">Presentation</div><div class="dd">Thursday</div><div class="ds">Company launch + video reveal</div></div></div>
+<div class="alert"><b>Color Correction Required</b><span>Old <code>#E8A830</code>/<code>#1A84C6</code> incorrect. Corrected to <code>#F7B041</code>/<code>#0B86D1</code>. SA Grey <code>#3D3D3D</code> added. RECOLOR tags = affected assets.</span></div>
+
+<!-- S0: RECOLOR -->
+<div class="sec"><div class="sh"><div class="sn c">!</div><div class="st">Color Correction Pass</div><div class="sd">SAT</div></div><ul class="cl">
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">PPTX slide master: header wordmark + gradient bars</div><div class="id">Wordmark uses <code>#E8A830</code>. Gradient endpoints need <code>#F7B041</code> to <code>#0B86D1</code>. Appears on every slide.</div><div class="tags"><span class="tg tg-r">Recolor</span><span class="tg tg-m">Sat</span></div>
+<ul class="subs">
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Open slide master, find/replace amber hex</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Update gradient bar start/end in master</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Verify all layouts inherited changes</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Export test PDF, eyedrop confirm</li>
+</ul></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Section badges (01-04), chart slides 21-30, palette slide 10</div><div class="id">All amber/blue badges, chart data series, color swatch labels use old hex.</div><div class="tags"><span class="tg tg-r">Recolor</span><span class="tg tg-m">Sat</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Background JPGs (4 variants)</div><div class="id">Re-export from Photoshop/Illustrator source with corrected gradient stops.</div><div class="tags"><span class="tg tg-r">Recolor</span><span class="tg tg-m">Sat</span></div>
+<ul class="subs">
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Open source PSD/AI files</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Update gradient color stops</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Export all 4 as JPG</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Replace in all PPTX templates</li>
+</ul></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Consulting deck, social backdrops (Analysis/News/General)</div><div class="tags"><span class="tg tg-r">Recolor</span><span class="tg tg-m">Sat</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">IG carousel templates, YT thumbnails, product showcase 16:9</div><div class="tags"><span class="tg tg-r">Recolor</span><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">SA x SAIL logo sting, Posty Hub, GTC scheduler, automation pipeline, Power BI theme, Buffer tags</div><div class="id">All internal tools and platform settings using old hex.</div><div class="tags"><span class="tg tg-r">Recolor</span></div></div></li>
+</ul></div>
+
+<!-- S1: LOGO -->
+<div class="sec"><div class="sh"><div class="sn a">01</div><div class="st">Logo & Color System</div><div class="sd">SAT</div></div><ul class="cl">
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Verify all 4 logo variants match corrected hex</div><div class="id">Box Logo+Text, Box Logo, Box Logo+Lettermark, Lettermark.</div><div class="tags"><span class="tg tg-m">Sat</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Export logos: PNG/SVG/JPEG, 3 sizes each (36 files total)</div><div class="tags"><span class="tg tg-m">Sat</span></div>
+<ul class="subs">
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>4 variants x 3 formats x 3 sizes</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Organize into folders by variant</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Spot-check 3 random exports with eyedropper</li>
+</ul></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Color palette reference sheet (HEX/RGB/CMYK, both tinted + colorful)</div><div class="tags"><span class="tg tg-m">Sat</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Color usage rules doc: Amber=Analysis, Blue=News, General=Both, Teal=Capital (hold), Coral=Alerts</div><div class="tags"><span class="tg tg-m">Sat</span></div></div></li>
+</ul></div>
+
+<!-- S2: FONT -->
+<div class="sec"><div class="sh"><div class="sn b">02</div><div class="st">Typography & Font System</div><div class="sd">SAT-SUN</div></div><ul class="cl">
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Evaluate + select new fallback font (replacing Space Grotesk/DM Sans)</div><div class="id">Candidates: Instrument Sans, General Sans, Satoshi, Switzer, Outfit, Sora, Plus Jakarta Sans.</div><div class="tags"><span class="tg tg-f">Font review</span><span class="tg tg-m">Sat</span></div>
+<ul class="subs">
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Download top 3-4 candidates</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Test each at 400/500/600/700 alongside Grift</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Test in PPTX on Mac + Windows</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Lock in final pick</li>
+</ul></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Font doc: Grift weights (700/600/500/400) + new fallback chain</div><div class="tags"><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Package Grift + fallback with install instructions (Mac/Win)</div><div class="tags"><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Update PPTX font substitution tables</div><div class="tags"><span class="tg tg-f">Font review</span><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Typography do's/don'ts with visual examples</div><div class="id">No light backgrounds, no PT Sans/Calibri, no system defaults.</div><div class="tags"><span class="tg tg-m">Sun</span></div></div></li>
+</ul></div>
+
+<!-- S3: STYLE -->
+<div class="sec"><div class="sh"><div class="sn t">03</div><div class="st">Style Guideline Cheat Sheet</div><div class="sd">SUN</div></div><ul class="cl">
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">One-page brand cheat sheet (printable, pinnable)</div><div class="id">Logo variants, corrected hex, font weights, voice/tone, do/don't. For Slack + desks.</div><div class="tags"><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Voice/tone guidelines</div><div class="id">Brand voice: authoritative, data-first, no fluff. Platform tones: X=witty, LinkedIn=professional, IG=visual, TikTok=lowercase conversational.</div><div class="tags"><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Photography/imagery rules</div><div class="id">Dark backgrounds only. Circuit-trace aesthetic. No stock photo vibes. Logo placement rules.</div><div class="tags"><span class="tg tg-m">Sun</span></div></div></li>
+</ul></div>
+
+<!-- S4: TEMPLATES -->
+<div class="sec"><div class="sh"><div class="sn g">04</div><div class="st">Templates & Documents</div><div class="sd">SUN</div></div><ul class="cl">
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Dark PPTX template (corrected, all layouts)</div><div class="id">Title, divider, 2-col, chart, table, picture+text, Q&A. Grift + corrected colors on dark.</div><div class="tags"><span class="tg tg-r">Recolor</span><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Colorful PPTX template (extended palette variant)</div><div class="id">Teal/coral accents alongside amber/blue for events, social, engagement decks.</div><div class="tags"><span class="tg tg-n">New</span><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Excel: brand asset tracker + content matrix</div><div class="tags"><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Business cards / letterhead</div><div class="tags"><span class="tg tg-x">Backlog</span></div></div></li>
+</ul></div>
+
+<!-- S5: SOCIAL -->
+<div class="sec"><div class="sh"><div class="sn a">05</div><div class="st">Social Assets, Canva & Slack</div><div class="sd">SUN</div></div><ul class="cl">
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Social profile pics + banners (X, LinkedIn, IG, YouTube, FB)</div><div class="tags"><span class="tg tg-r">Recolor</span><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Instagram carousel post templates (cover, content, CTA slides)</div><div class="tags"><span class="tg tg-r">Recolor</span><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">YouTube thumbnail templates (Podcast, SAIL, Max, GTC)</div><div class="tags"><span class="tg tg-r">Recolor</span><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Canva brand kit + podcast appearance reel templates (9:16)</div><div class="id">Upload palette + Grift. Build reel frame: SA logo, lower third, CTA end card.</div><div class="tags"><span class="tg tg-n">New</span><span class="tg tg-m">Sun</span></div>
+<ul class="subs">
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Upload brand colors + Grift to Canva brand kit</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Build 9:16 reel frame overlay template</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Build CTA end card template</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Test with a sample podcast clip</li>
+</ul></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Shorts Caption Kit: formatted team doc</div><div class="id">X (no hashtags, hook+reply), YT Shorts (&lt;40 char), IG Reels (5-8 tags), TikTok (lowercase, overlays 0/3/6s).</div><div class="tags"><span class="tg tg-m">Sun</span></div></div></li>
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic"><div class="it">Pin cheat sheet in Slack + define file naming conventions</div><div class="tags"><span class="tg tg-m">Today</span></div></div></li>
+</ul></div>
+
+<!-- S6: SLACK STYLE GUIDE UPDATE -->
+<div class="sec"><div class="sh"><div class="sn g">06</div><div class="st">Slack Style Guide Update (final gate)</div><div class="sd">LAST</div></div>
+<p style="color:var(--mt);font-size:9px;margin-bottom:8px;line-height:1.5">Update the pinned Style Guide in Slack. Editorial rules stay as-is (Datacenter, Nvidia, fiscal years, units, abbreviations, date formats). Below is everything that changes or gets added. Do this LAST so all assets are confirmed before updating the guide.</p>
+<ul class="cl">
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Replace "SemiAnalysis gold" with "SA Amber #F7B041" everywhere</div>
+<div class="id">Guide says "use SemiAnalysis gold as the title of the table." Change all "gold" references to "SA Amber" with hex <code>#F7B041</code>.</div>
+<div class="tags"><span class="tg tg-r">Recolor</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Replace "969696 grey" header color with SA Grey #3D3D3D</div>
+<div class="id">Guide references 969696 for column headers. Update to <code>#3D3D3D</code> (SA Grey) or use Grey 300 <code>#6D6D6D</code> for lighter headers. White font stays.</div>
+<div class="tags"><span class="tg tg-r">Recolor</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Add full corrected color block with hex codes</div>
+<div class="id">Replace vague "SemiAnalysis colors in the color block" with the defined palette: SA Amber <code>#F7B041</code>, SA Blue <code>#0B86D1</code>, SA Grey <code>#3D3D3D</code>, SA Teal <code>#2EAD8E</code> (Capital, hold), SA Coral <code>#E06347</code> (alerts).</div>
+<div class="tags"><span class="tg tg-r">Recolor</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Update font: replace "10 pt Ariel" with Grift + new fallback</div>
+<div class="id">"Ariel" is misspelled (Arial) and wrong font entirely. Replace with: "Grift 400 for body, Grift 700 for headers. Fallback: [new selection]. 10pt minimum for tables."</div>
+<div class="tags"><span class="tg tg-f">Font</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Fill in empty Charts section with chart series color order</div>
+<div class="id">Currently blank. Add: "Chart series order: Amber 400, Blue 400, Amber 600, Blue 600, Amber 300, Blue 300, Teal, Coral. Alternate warm/cool. See Palettes tab for full ramp hex codes."</div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Update "Two Themes" section: dark tinted + colorful (not light/dark)</div>
+<div class="id">Guide says "light theme and dark theme." Replace with: "Dark Tinted (amber+blue ramps only, circuit-trace) and Colorful (full 5-color palette, for events/social)." Link to Templates.xlsx location.</div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Update PowerPoint section: replace "Updated Stack" with template locations</div>
+<div class="id">Currently just says "Updated Stack" from Akash. Replace with links/paths to Dark PPTX template, Colorful PPTX template, and slide layout inventory.</div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Add new section: Logo Usage Rules</div>
+<div class="id">Four variants (Box Logo+Text, Box Logo, Box Logo+Lettermark, Lettermark). Dark backgrounds only. Minimum clear space. Link to logo exports folder.</div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Add new section: Social Media / Shorts Caption Kit</div>
+<div class="id">X: hook+reply-to-self, NO hashtags ever. YT Shorts: title under 40 chars, #shorts. IG Reels: 5-8 hashtags + save CTA + location. TikTok: lowercase, overlays at 0s/3s/6s. Posting: Tue/Wed 7-8am ET. Stagger rules.</div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Add new section: Photography and imagery rules</div>
+<div class="id">Dark backgrounds only. Circuit-trace aesthetic. No generic stock photos. Logo placement rules on images.</div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Add new section: Content type color mapping</div>
+<div class="id">Amber = Analysis, Blue = News, Amber+Blue = General, Teal = Capital (hold for launch), Coral = Alerts/urgency. Social backdrops follow this system.</div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Update Logos and Art folder with all new exports</div>
+<div class="id">Guide references "Logos and Art" folder and Templates.xlsx. Confirm all 36 logo exports are uploaded, Templates.xlsx is updated with corrected colors, and Canva brand kit link is added.</div>
+</div></li>
+
+</ul></div>
+
+</div>
+
+<!-- ========== TAB 2: SLIDE PLAN ========== -->
+<div class="tp" id="tab-slides">
+<p style="color:var(--mt);font-size:10px;margin-bottom:14px;line-height:1.5">Restructured from the 25-slide Michelle deck into a 15-slide company launch. Goal: sell the rebrand, get the team excited, clear instructions on what changes now. Assignable to you or Vansh.</p>
+
+<div class="sg">
+<div class="sl">Opening — hook them</div>
+<div class="sr"><div class="snum">01</div><div class="sdesc"><strong>Title: "The New SemiAnalysis"</strong><span class="ss">Play brand animation video here. Logo reveal, colors, energy. Set tone immediately. Vansh can build title card if you provide animation.</span></div><div class="sact an">NEW</div></div>
+<div class="sr"><div class="snum">02</div><div class="sdesc"><strong>Why now: 3 reasons this matters</strong><span class="ss">SA is scaling (more subs, events, media). Brand must match research quality. More traction = more trust = bigger partnerships. Keep it to 3 punchy bullets, no wall of text.</span></div><div class="sact an">NEW</div></div>
+
+<div class="sl">Pillar 1 — what changed</div>
+<div class="sr"><div class="snum">03</div><div class="sdesc"><strong>Before / after: the visual upgrade</strong><span class="ss">Side-by-side: old IG grid vs new, old deck vs new, old hex swatches (#E8A830) vs corrected (#F7B041). Let contrast do the talking. Screenshot the old, place next to new.</span></div><div class="sact an">NEW</div></div>
+<div class="sr"><div class="snum">04</div><div class="sdesc"><strong>Logo system</strong><span class="ss">KEEP from Michelle slide 9. Four variants, usage rules. Already clean. Just verify the hex values on the slide match corrected colors.</span></div><div class="sact ak">KEEP</div></div>
+<div class="sr"><div class="snum">05</div><div class="sdesc"><strong>Color palette (corrected)</strong><span class="ss">EDIT Michelle slide 10. Update swatches to #F7B041 / #0B86D1 / #3D3D3D. Add content-type mapping (Amber=Analysis, Blue=News). Add SA Grey.</span></div><div class="sact ae">EDIT</div></div>
+<div class="sr"><div class="snum">06</div><div class="sdesc"><strong>Typography system</strong><span class="ss">EDIT Michelle slide 11. Grift weights stay. Update fallback font to new selection. Keep "dark backgrounds only" warning.</span></div><div class="sact ae">EDIT</div></div>
+
+<div class="sl">Pillar 2 — what you do now</div>
+<div class="sr"><div class="snum">07</div><div class="sdesc"><strong>The cheat sheet: your new rules</strong><span class="ss">Show the one-pager live on screen. "This is your reference. Pin it. Use it. No deviations without approval." Make it simple and non-negotiable. Vansh can screenshot the cheat sheet and place it.</span></div><div class="sact an">NEW</div></div>
+<div class="sr"><div class="snum">08</div><div class="sdesc"><strong>Templates: where to find them</strong><span class="ss">Dark PPTX, colorful PPTX, Canva brand kit, social templates, thumbnails. Show file locations and naming conventions. "Everything you need is here." Vansh can build a simple directory mockup.</span></div><div class="sact an">NEW</div></div>
+<div class="sr"><div class="snum">09</div><div class="sdesc"><strong>Social media: new post layouts + Canva reels</strong><span class="ss">EDIT Michelle slides 17-18. Show new carousel templates and podcast appearance reel template. Quick overview of Shorts Caption Kit. This is where the team sees the day-to-day impact.</span></div><div class="sact ae">EDIT</div></div>
+<div class="sr"><div class="snum">10</div><div class="sdesc"><strong>Content calendar + posting rules</strong><span class="ss">EDIT Michelle slide 7. Simplified: Tue/Wed drops, stagger rules, 3-shorts-per-long-form minimum. Buffer stays through Q3. Don't overwhelm — just the rules that matter.</span></div><div class="sact ae">EDIT</div></div>
+
+<div class="sl">Pillar 3 — why it matters</div>
+<div class="sr"><div class="snum">11</div><div class="sdesc"><strong>What SA brings to the table</strong><span class="ss">KEEP from Michelle slide 4. Research edge, unmatched access, event presence, growing media op. Remind them why the brand upgrade matters.</span></div><div class="sact ak">KEEP</div></div>
+<div class="sr"><div class="snum">12</div><div class="sdesc"><strong>Growth numbers: the traction case</strong><span class="ss">NEW. Pull from Power BI (slide 24 data). LinkedIn 18K→34K, X 54K→66K, IG 570→965. Design this as a clean growth chart, not a raw screenshot. "Brand consistency accelerates this."</span></div><div class="sact an">NEW</div></div>
+<div class="sr"><div class="snum">13</div><div class="sdesc"><strong>Competitor benchmarks</strong><span class="ss">EDIT Michelle slides 14-15. Simplified: Evolving.ai at 4.3M followers, TBPN at 32K. "This is where we're headed. Brand is the accelerant." One slide, not two.</span></div><div class="sact ae">EDIT</div></div>
+
+<div class="sl">Close — send them off fired up</div>
+<div class="sr"><div class="snum">14</div><div class="sdesc"><strong>The ask: 3 things starting today</strong><span class="ss">NEW. 1) Install Grift, use the templates. 2) Follow the cheat sheet, no freelancing. 3) Tag content correctly in Buffer. Clear, actionable, immediate. Big numbers on screen.</span></div><div class="sact an">NEW</div></div>
+<div class="sr"><div class="snum">15</div><div class="sdesc"><strong>Thank you + Q&A</strong><span class="ss">EDIT Michelle slide 25. Clean closer. Replay brand animation if time allows. Open floor.</span></div><div class="sact ae">EDIT</div></div>
+</div>
+
+<div class="cut-note">
+<b>CUT from Michelle deck (do not carry over):</b> Slide 2 (Agenda — jump straight in). Slide 3 (Marketing Strategy section divider — unnecessary). Slide 5 (Video Flows — too operational for launch). Slide 6 (Event playbook detail — too granular). Slide 8 (Brand Guidelines divider — unnecessary). Slide 12 (Social Media divider — unnecessary). Slide 13 (IG revamp goals — folded into slide 09). Slide 16 (Our IG page screenshot — folded into before/after). Slide 19 (Buffer tags detail — operational, not launch energy). Slides 20-23 (Sprout vs Buffer section — internal ops decision, wrong audience). Slide 24 (Raw Power BI screenshot — pull the numbers out, design them into slide 12 instead).
+</div>
+
+<div class="refs">
+<h3>Reference conversations for building slides</h3>
+<a href="https://claude.ai/chat/52a2e098-0a70-455d-8ccd-375d1f9fe36c">Template build + consulting deck port</a>
+<div class="rd">SA black template, Grift, circuit-trace backgrounds, slide mapping, world map. Use this for slide layout reference.</div>
+<a href="https://claude.ai/chat/31f8c721-68cc-4255-9bab-5f246f1e5e97">Chart slides + backgrounds + brand palette</a>
+<div class="rd">Chart slides 21-30, 4 background JPGs, extended palette, tints. Use for chart styling on slide 12.</div>
+<a href="https://claude.ai/chat/1a54a4bc-f124-445f-8ea4-d9ee99fde563">Color palette + content type mapping</a>
+<div class="rd">Amber=Analysis, Blue=News, Teal=Capital, social backdrops. Reference for slides 05 and 09.</div>
+</div>
+
+<!-- THURSDAY BUILD TASKS (checkable) -->
+<div class="sec" style="margin-top:24px">
+<div class="sh"><div class="sn b">&#9654;</div><div class="st">Thursday Build Tasks</div><div class="sd">MON-THU</div></div>
+<ul class="cl" id="slideChecklist">
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slides 01-02: Title + "Why Now" (NEW)</div>
+<div class="id">Build title card with brand animation embed slot. "Why now" slide: 3 punchy bullets only. SA is scaling, brand must match research quality, traction needs consistency. Either of you can build these since they're new from scratch.</div>
+<div class="tags"><span class="tg tg-t">Mon</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 03: Before/After Visual Comparison (NEW)</div>
+<div class="id">Screenshot old IG grid, old deck title slide, old social post. Place side-by-side with new versions. Include old hex #E8A830 swatch next to corrected #F7B041. Let the contrast sell the story. Vansh can assemble if you provide the old screenshots.</div>
+<div class="tags"><span class="tg tg-t">Mon</span></div>
+<ul class="subs">
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Capture old IG grid screenshot (or use slide 16 from Michelle deck)</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Capture old deck title slide with PT Sans/Calibri</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Place old vs new side-by-side with color swatch comparison</li>
+</ul>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 04: Logo System (KEEP Michelle slide 9)</div>
+<div class="id">Four variants already laid out. Just verify the hex labels on the slide match #F7B041 / #0B86D1. If the logo images reference old colors, swap them with the freshly exported versions from Saturday's work. Quick task.</div>
+<div class="tags"><span class="tg tg-t">Mon</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 05: Color Palette (EDIT Michelle slide 10)</div>
+<div class="id">Update swatch fills from #E8A830/#1A84C6 to #F7B041/#0B86D1. Add SA Grey #3D3D3D as third swatch. Update hex text labels. Add content-type mapping underneath: Amber=Analysis, Blue=News, Teal=Capital (hold), Coral=Alerts.</div>
+<div class="tags"><span class="tg tg-t">Tue</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 06: Typography System (EDIT Michelle slide 11)</div>
+<div class="id">Grift weights stay. Replace "Fallback: Space Grotesk / DM Sans" with the new fallback you selected Saturday. Keep the "dark backgrounds only" warning banner at bottom.</div>
+<div class="tags"><span class="tg tg-t">Tue</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 07: The Cheat Sheet (NEW)</div>
+<div class="id">Full-screen screenshot of the one-page brand cheat sheet you built Sunday. This IS the slide. "Pin this in Slack. Tape it at your desk. No deviations." Vansh can screenshot and drop it in.</div>
+<div class="tags"><span class="tg tg-t">Tue</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 08: Templates + File Locations (NEW)</div>
+<div class="id">Show where everything lives: Dark PPTX, Colorful PPTX, Canva brand kit, social templates, thumbnails. Simple directory/folder mockup with file icons. "Everything you need is here." Vansh can build this layout.</div>
+<div class="tags"><span class="tg tg-t">Tue</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 09: Social Media New Layouts + Canva Reels (EDIT Michelle slides 17-18)</div>
+<div class="id">Show the redesigned IG carousel templates and the new podcast reel template from Canva. Quick reference to Shorts Caption Kit. This is where the team sees the day-to-day impact of the rebrand.</div>
+<div class="tags"><span class="tg tg-t">Tue</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 10: Content Calendar + Posting Rules (EDIT Michelle slide 7)</div>
+<div class="id">Simplify. Tue/Wed 7-8am ET drops. X+IG simultaneous, TikTok stagger 4-6h, YT Shorts 24h apart. 3-shorts-per-long-form minimum. Buffer through Q3. No overwhelm, just the rules that matter.</div>
+<div class="tags"><span class="tg tg-t">Tue</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 11: What SA Brings to the Table (KEEP Michelle slide 4)</div>
+<div class="id">Research edge, unmatched access, event presence, growing media op. Already well designed. Just verify colors match corrected palette.</div>
+<div class="tags"><span class="tg tg-t">Tue</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 12: Growth Numbers (NEW, design from Power BI data)</div>
+<div class="id">LinkedIn 18K to 34K. X 54K to 66K. IG 570 to 965. FB 0 to 64. Design as a clean chart using the tinted palette (Amber 400 + Blue 400 series). NOT a raw Power BI screenshot. "Brand consistency accelerates this."</div>
+<div class="tags"><span class="tg tg-t">Tue</span></div>
+<ul class="subs">
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Pull exact numbers from Power BI</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Build chart in PowerPoint using brand colors</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Add "brand consistency accelerates this" callout</li>
+</ul>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 13: Competitor Benchmarks (EDIT Michelle slides 14-15)</div>
+<div class="id">Merge two slides into one. Evolving.ai at 4.3M followers, TBPN at 32K. "This is where we're headed. Brand is the accelerant." Keep it aspirational, not envious.</div>
+<div class="tags"><span class="tg tg-t">Tue</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 14: The Ask, 3 Things Starting Today (NEW)</div>
+<div class="id">Big bold numbers on screen. 1) Install Grift, use the templates. 2) Follow the cheat sheet, no freelancing the brand. 3) Tag content correctly in Buffer. Make this the "marching orders" slide. Non-negotiable energy.</div>
+<div class="tags"><span class="tg tg-t">Wed</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Slide 15: Thank You + Q&A (EDIT Michelle slide 25)</div>
+<div class="id">Clean closer. Option to replay brand animation. Open floor for questions.</div>
+<div class="tags"><span class="tg tg-t">Wed</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Video animation: brand asset reveal</div>
+<div class="id">Animated logo sting showing the new brand system coming to life. Logo build, color cascade, typography showcase. Plays at opener (slide 01) or as standalone reveal moment. 15-30 seconds.</div>
+<div class="tags"><span class="tg tg-t">Wed</span></div>
+<ul class="subs">
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Storyboard: logo build, color reveal, type reveal sequence</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Build in After Effects or motion tool</li>
+<li class="sub" onclick="event.stopPropagation();stog(this)"><div class="scb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div>Export MP4, test embed in PPTX slide 01</li>
+</ul>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Rehearse full presentation end-to-end</div>
+<div class="id">Run through all 15 slides + video. Time it. Target 20-30 minutes with Q&A. Adjust pacing, cut anything that drags. Practice the transitions between pillars.</div>
+<div class="tags"><span class="tg tg-t">Wed eve</span></div>
+</div></li>
+
+<li class="ci" onclick="tog(this)"><div class="cb"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ic">
+<div class="it">Thursday morning: final check before presenting</div>
+<div class="id">Video plays correctly, all slides advance, links work, colors render right on the presentation screen. 30 min buffer.</div>
+<div class="tags"><span class="tg tg-t">Thu 9am</span></div>
+</div></li>
+
+</ul>
+</div>
+</div>
+
+<!-- ========== TAB 3: PALETTES ========== -->
+<div class="tp" id="tab-palette">
+<div class="pal-toggle"><div class="pt on" onclick="switchPal('tinted')">Core Tinted</div><div class="pt" onclick="switchPal('colorful')">Colorful Extended</div></div>
+
+<div class="pv on" id="pal-tinted">
+<div class="ramp-sec"><div class="ramp-label">Amber — from #F7B041</div><div class="ramp">
+<div class="chip"><div class="chip-color" style="background:#31230D"></div><div class="chip-info"><div class="chip-name">900</div><div class="chip-hex" onclick="copyHex(this)">#31230D</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#563D16"></div><div class="chip-info"><div class="chip-name">800</div><div class="chip-hex" onclick="copyHex(this)">#563D16</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#7B5820"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#7B5820</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#AC7B2D"></div><div class="chip-info"><div class="chip-name">600</div><div class="chip-hex" onclick="copyHex(this)">#AC7B2D</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#D19537"></div><div class="chip-info"><div class="chip-name">500</div><div class="chip-hex" onclick="copyHex(this)">#D19537</div></div></div>
+<div class="chip"><div class="chip-color core" style="background:#F7B041"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#F7B041</div><div class="chip-tag">CORE</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#F9C370"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#F9C370</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#FAD396"></div><div class="chip-info"><div class="chip-name">200</div><div class="chip-hex" onclick="copyHex(this)">#FAD396</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#FCE3BC"></div><div class="chip-info"><div class="chip-name">100</div><div class="chip-hex" onclick="copyHex(this)">#FCE3BC</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#FDF3E2"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#FDF3E2</div></div></div>
+</div></div>
+<div class="ramp-sec"><div class="ramp-label">Blue — from #0B86D1</div><div class="ramp">
+<div class="chip"><div class="chip-color" style="background:#021A29"></div><div class="chip-info"><div class="chip-name">900</div><div class="chip-hex" onclick="copyHex(this)">#021A29</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#032E49"></div><div class="chip-info"><div class="chip-name">800</div><div class="chip-hex" onclick="copyHex(this)">#032E49</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#054368"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#054368</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#075D92"></div><div class="chip-info"><div class="chip-name">600</div><div class="chip-hex" onclick="copyHex(this)">#075D92</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#0971B1"></div><div class="chip-info"><div class="chip-name">500</div><div class="chip-hex" onclick="copyHex(this)">#0971B1</div></div></div>
+<div class="chip"><div class="chip-color core" style="background:#0B86D1"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#0B86D1</div><div class="chip-tag">CORE</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#48A4DC"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#48A4DC</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#78BCE5"></div><div class="chip-info"><div class="chip-name">200</div><div class="chip-hex" onclick="copyHex(this)">#78BCE5</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#A9D4EE"></div><div class="chip-info"><div class="chip-name">100</div><div class="chip-hex" onclick="copyHex(this)">#A9D4EE</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#DAECF8"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#DAECF8</div></div></div>
+</div></div>
+<div class="ramp-sec"><div class="ramp-label">Grey / Neutral — from #3D3D3D</div><div class="ramp">
+<div class="chip"><div class="chip-color" style="background:#0C0C0C"></div><div class="chip-info"><div class="chip-name">900</div><div class="chip-hex" onclick="copyHex(this)">#0C0C0C</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#151515"></div><div class="chip-info"><div class="chip-name">800</div><div class="chip-hex" onclick="copyHex(this)">#151515</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#1E1E1E"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#1E1E1E</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#2A2A2A"></div><div class="chip-info"><div class="chip-name">600</div><div class="chip-hex" onclick="copyHex(this)">#2A2A2A</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#333333"></div><div class="chip-info"><div class="chip-name">500</div><div class="chip-hex" onclick="copyHex(this)">#333333</div></div></div>
+<div class="chip"><div class="chip-color core" style="background:#3D3D3D"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#3D3D3D</div><div class="chip-tag">CORE</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#6D6D6D"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#6D6D6D</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#949494"></div><div class="chip-info"><div class="chip-name">200</div><div class="chip-hex" onclick="copyHex(this)">#949494</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#BBBBBB"></div><div class="chip-info"><div class="chip-name">100</div><div class="chip-hex" onclick="copyHex(this)">#BBBBBB</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#E1E1E1"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#E1E1E1</div></div></div>
+</div></div>
+<div class="ug"><div class="uc"><h4>2-series charts</h4><p>Amber 400 + Blue 400. Max contrast.</p></div><div class="uc"><h4>3-4 series</h4><p>Alternate: A400, B400, A600, B600.</p></div><div class="uc"><h4>Dark backgrounds</h4><p>Grey 900-700. Core colors pass AA.</p></div><div class="uc"><h4>Light backgrounds</h4><p>Grey 50-100. Use 600+ for text.</p></div></div>
+<div class="qr"><b>Amber:</b> #31230D · #563D16 · #7B5820 · #AC7B2D · #D19537 · <span style="color:#F7B041">#F7B041</span> · #F9C370 · #FAD396 · #FCE3BC · #FDF3E2<br><b>Blue:</b> #021A29 · #032E49 · #054368 · #075D92 · #0971B1 · <span style="color:#0B86D1">#0B86D1</span> · #48A4DC · #78BCE5 · #A9D4EE · #DAECF8<br><b>Grey:</b> #0C0C0C · #151515 · #1E1E1E · #2A2A2A · #333333 · #3D3D3D · #6D6D6D · #949494 · #BBBBBB · #E1E1E1</div>
+</div>
+
+<div class="pv" id="pal-colorful">
+<div class="ramp-sec"><div class="ramp-label">Amber #F7B041 (Analysis)</div><div class="ramp">
+<div class="chip"><div class="chip-color" style="background:#7B5820"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#7B5820</div></div></div>
+<div class="chip"><div class="chip-color core" style="background:#F7B041"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#F7B041</div><div class="chip-tag">CORE</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#F9C370"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#F9C370</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#FDF3E2"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#FDF3E2</div></div></div>
+</div></div>
+<div class="ramp-sec"><div class="ramp-label">Blue #0B86D1 (News)</div><div class="ramp">
+<div class="chip"><div class="chip-color" style="background:#054368"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#054368</div></div></div>
+<div class="chip"><div class="chip-color core" style="background:#0B86D1"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#0B86D1</div><div class="chip-tag">CORE</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#48A4DC"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#48A4DC</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#DAECF8"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#DAECF8</div></div></div>
+</div></div>
+<div class="ramp-sec"><div class="ramp-label">Teal #2EAD8E (Capital, hold)</div><div class="ramp">
+<div class="chip"><div class="chip-color" style="background:#175647"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#175647</div></div></div>
+<div class="chip"><div class="chip-color core" style="background:#2EAD8E"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#2EAD8E</div><div class="chip-tag">CORE</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#62C1AA"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#62C1AA</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#DFF2EE"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#DFF2EE</div></div></div>
+</div></div>
+<div class="ramp-sec"><div class="ramp-label">Coral #E06347 (Alerts, urgency)</div><div class="ramp">
+<div class="chip"><div class="chip-color" style="background:#703123"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#703123</div></div></div>
+<div class="chip"><div class="chip-color core" style="background:#E06347"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#E06347</div><div class="chip-tag">CORE</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#E78A75"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#E78A75</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#FAE7E3"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#FAE7E3</div></div></div>
+</div></div>
+<div class="ramp-sec"><div class="ramp-label">Grey #3D3D3D (Structural)</div><div class="ramp">
+<div class="chip"><div class="chip-color" style="background:#1E1E1E"></div><div class="chip-info"><div class="chip-name">700</div><div class="chip-hex" onclick="copyHex(this)">#1E1E1E</div></div></div>
+<div class="chip"><div class="chip-color core" style="background:#3D3D3D"></div><div class="chip-info"><div class="chip-name">400</div><div class="chip-hex" onclick="copyHex(this)">#3D3D3D</div><div class="chip-tag">CORE</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#6D6D6D"></div><div class="chip-info"><div class="chip-name">300</div><div class="chip-hex" onclick="copyHex(this)">#6D6D6D</div></div></div>
+<div class="chip"><div class="chip-color" style="background:#E1E1E1"></div><div class="chip-info"><div class="chip-name">50</div><div class="chip-hex" onclick="copyHex(this)">#E1E1E1</div></div></div>
+</div></div>
+<p style="font-size:9px;color:var(--mt);margin:12px 0 6px">Chart series (up to 8), warm/cool alternation:</p>
+<div class="chart-row">
+<div class="chart-bar" style="background:#F7B041;height:95%"></div><div class="chart-bar" style="background:#0B86D1;height:80%"></div><div class="chart-bar" style="background:#AC7B2D;height:65%"></div><div class="chart-bar" style="background:#075D92;height:55%"></div><div class="chart-bar" style="background:#F9C370;height:45%"></div><div class="chart-bar" style="background:#48A4DC;height:72%"></div><div class="chart-bar" style="background:#2EAD8E;height:60%"></div><div class="chart-bar" style="background:#E06347;height:50%"></div>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;font-size:8px;color:var(--mt);font-family:'JetBrains Mono',monospace">
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#F7B041;vertical-align:middle;margin-right:2px"></span>A400</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#0B86D1;vertical-align:middle;margin-right:2px"></span>B400</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#AC7B2D;vertical-align:middle;margin-right:2px"></span>A600</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#075D92;vertical-align:middle;margin-right:2px"></span>B600</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#F9C370;vertical-align:middle;margin-right:2px"></span>A300</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#48A4DC;vertical-align:middle;margin-right:2px"></span>B300</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#2EAD8E;vertical-align:middle;margin-right:2px"></span>Teal</span>
+<span><span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:#E06347;vertical-align:middle;margin-right:2px"></span>Coral</span>
+</div>
+<div class="ug" style="margin-top:14px"><div class="uc"><h4>Dark "tinted" template</h4><p>Amber + blue ramps only. Grey 700-900 bg. Circuit-trace. Core SA look.</p></div><div class="uc"><h4>Colorful template</h4><p>Full 5-color palette. Teal/coral accent cards. Events, social, engagement decks.</p></div><div class="uc"><h4>Content type colors</h4><p>Amber=Analysis, Blue=News, Both=General, Teal=Capital (hold), Coral=Alerts.</p></div><div class="uc"><h4>Social backdrops</h4><p>Single color on dark per type. Colorful uses gradient between 2+ brand colors.</p></div></div>
+<div class="qr"><b>Cores:</b> <span style="color:#F7B041">#F7B041</span> · <span style="color:#0B86D1">#0B86D1</span> · #3D3D3D · <span style="color:#2EAD8E">#2EAD8E</span> · <span style="color:#E06347">#E06347</span><br><b>Chart:</b> A400→B400→A600→B600→A300→B300→Teal→Coral</div>
+</div>
+</div>
+
+<!-- ========== TAB 4: TIMELINE ========== -->
+<div class="tp" id="tab-timeline">
+<div class="tl-now" id="tlNow"><div class="tl-now-label">Current Status</div><div class="tl-now-time" id="tlTime">Loading...</div><div class="tl-now-sub" id="tlSub"></div>
+<div class="tl-meters"><div class="tl-meter"><div class="tl-meter-label">Weekend sprint <span id="wkPct"></span></div><div class="tl-meter-bar"><div class="tl-meter-fill" id="wkFill" style="background:linear-gradient(90deg,var(--am),var(--bl));width:0%"></div></div></div>
+<div class="tl-meter"><div class="tl-meter-label">Full week <span id="fwPct"></span></div><div class="tl-meter-bar"><div class="tl-meter-fill" id="fwFill" style="background:linear-gradient(90deg,var(--tl),var(--bl));width:0%"></div></div></div></div></div>
+<div class="squeeze-alert" id="squeezeAlert"><span id="squeezeMsg"></span></div>
+
+<div class="tl-day"><div class="tl-day-hdr"><div class="tl-day-dot" style="background:var(--am)"></div><div class="tl-day-name">Saturday - FULL SPRINT</div><div class="tl-day-date">Apr 5</div><div class="tl-day-status" id="satStatus" style="background:rgba(247,176,65,.08);color:var(--am)">today</div></div>
+<div class="tl-block" data-start="2026-04-05T09:00" data-end="2026-04-05T10:30"><div class="tl-time">9:00</div><div class="tl-task"><b>PPTX master recolor</b> — hex swap, gradient bars, verify layouts</div><div class="tl-dur">1.5h</div></div>
+<div class="tl-block" data-start="2026-04-05T10:30" data-end="2026-04-05T12:00"><div class="tl-time">10:30</div><div class="tl-task"><b>Background JPG re-export + logo verify/export 36 files</b></div><div class="tl-dur">1.5h</div></div>
+<div class="tl-block" data-start="2026-04-05T12:00" data-end="2026-04-05T12:30"><div class="tl-time">12:00</div><div class="tl-task">Break</div><div class="tl-dur">30m</div></div>
+<div class="tl-block" data-start="2026-04-05T12:30" data-end="2026-04-05T14:00"><div class="tl-time">12:30</div><div class="tl-task"><b>Consulting deck + social backdrops recolor</b></div><div class="tl-dur">1.5h</div></div>
+<div class="tl-block" data-start="2026-04-05T14:00" data-end="2026-04-05T15:00"><div class="tl-time">2:00</div><div class="tl-task"><b>Font evaluation</b> — download top 3, test, lock in pick</div><div class="tl-dur">1h</div></div>
+<div class="tl-block" data-start="2026-04-05T15:00" data-end="2026-04-05T16:30"><div class="tl-time">3:00</div><div class="tl-task"><b>Dark + Colorful PPTX templates</b> — finalize both with corrected colors + new fallback font</div><div class="tl-dur">1.5h</div></div>
+<div class="tl-block" data-start="2026-04-05T16:30" data-end="2026-04-05T17:30"><div class="tl-time">4:30</div><div class="tl-task"><b>Social assets</b> — profiles, banners, IG carousels, YT thumbnails</div><div class="tl-dur">1h</div></div>
+<div class="tl-block" data-start="2026-04-05T17:30" data-end="2026-04-05T18:30"><div class="tl-time">5:30</div><div class="tl-task"><b>Canva setup</b> — brand kit + podcast reel templates</div><div class="tl-dur">1h</div></div>
+<div class="tl-block" data-start="2026-04-05T18:30" data-end="2026-04-05T19:30"><div class="tl-time">6:30</div><div class="tl-task"><b>Cheat sheet + Shorts Caption Kit doc + font package</b></div><div class="tl-dur">1h</div></div>
+<div class="tl-block" data-start="2026-04-05T19:30" data-end="2026-04-05T20:30"><div class="tl-time">7:30</div><div class="tl-task"><b>Palette ref, Excel tracker, color usage rules</b></div><div class="tl-dur">1h</div></div>
+<div class="tl-block" data-start="2026-04-05T20:30" data-end="2026-04-05T21:30"><div class="tl-time">8:30</div><div class="tl-task"><b>Slack Style Guide update + final QC (eyedrop 5 assets)</b></div><div class="tl-dur">1h</div></div>
+</div>
+
+<div class="tl-day"><div class="tl-day-hdr"><div class="tl-day-dot" style="background:var(--tl)"></div><div class="tl-day-name">Monday</div><div class="tl-day-date">Apr 7</div><div class="tl-day-status" id="monStatus" style="background:rgba(46,173,142,.08);color:var(--tl)">upcoming</div></div>
+<div class="tl-block" data-start="2026-04-07T08:00" data-end="2026-04-07T09:00"><div class="tl-time">8:00</div><div class="tl-task"><b>LAUNCH: deploy all assets</b> — push templates, Slack, font package</div><div class="tl-dur">1h</div></div>
+<div class="tl-block" data-start="2026-04-07T10:00" data-end="2026-04-07T12:00"><div class="tl-time">10:00</div><div class="tl-task"><b>Presentation slides 1-6</b> — opening + what changed</div><div class="tl-dur">2h</div></div>
+</div>
+
+<div class="tl-day"><div class="tl-day-hdr"><div class="tl-day-dot" style="background:var(--mt)"></div><div class="tl-day-name">Tuesday</div><div class="tl-day-date">Apr 8</div><div class="tl-day-status" id="tueStatus" style="background:rgba(100,100,120,.06);color:var(--mt)">upcoming</div></div>
+<div class="tl-block" data-start="2026-04-08T10:00" data-end="2026-04-08T12:00"><div class="tl-time">10:00</div><div class="tl-task"><b>Slides 7-10</b> — cheat sheet, templates, social, calendar</div><div class="tl-dur">2h</div></div>
+<div class="tl-block" data-start="2026-04-08T14:00" data-end="2026-04-08T16:00"><div class="tl-time">2:00</div><div class="tl-task"><b>Slides 11-15</b> — value prop, growth, competitors, CTA, close</div><div class="tl-dur">2h</div></div>
+</div>
+
+<div class="tl-day"><div class="tl-day-hdr"><div class="tl-day-dot" style="background:var(--co)"></div><div class="tl-day-name">Wednesday</div><div class="tl-day-date">Apr 9</div><div class="tl-day-status" id="wedStatus" style="background:rgba(224,99,71,.06);color:var(--co)">upcoming</div></div>
+<div class="tl-block" data-start="2026-04-09T10:00" data-end="2026-04-09T13:00"><div class="tl-time">10:00</div><div class="tl-task"><b>Video animation: brand reveal</b></div><div class="tl-dur">3h</div></div>
+<div class="tl-block" data-start="2026-04-09T14:00" data-end="2026-04-09T15:30"><div class="tl-time">2:00</div><div class="tl-task"><b>Before/after slides</b></div><div class="tl-dur">1.5h</div></div>
+<div class="tl-block" data-start="2026-04-09T16:00" data-end="2026-04-09T17:00"><div class="tl-time">4:00</div><div class="tl-task"><b>Rehearse full presentation</b></div><div class="tl-dur">1h</div></div>
+</div>
+
+<div class="tl-day"><div class="tl-day-hdr"><div class="tl-day-dot" style="background:#fff"></div><div class="tl-day-name">Thursday — LAUNCH DAY</div><div class="tl-day-date">Apr 10</div><div class="tl-day-status" id="thuStatus" style="background:rgba(255,255,255,.06);color:#fff">upcoming</div></div>
+<div class="tl-block" data-start="2026-04-10T09:00" data-end="2026-04-10T09:30"><div class="tl-time">9:00</div><div class="tl-task"><b>Final check</b> — video, slides, links</div><div class="tl-dur">30m</div></div>
+<div class="tl-block" data-start="2026-04-10T10:00" data-end="2026-04-10T11:00"><div class="tl-time">10:00</div><div class="tl-task"><b>PRESENT: company-wide rebrand launch</b></div><div class="tl-dur">1h</div></div>
+</div>
+</div>
+
+</div>
+
+<!-- SAVE TOAST + POMODORO -->
+<div class="save-toast" id="saveToast">Saved</div>
+<button class="pomo-fab" id="pomoFab" onclick="togglePomo()" title="Pomodoro"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M9 2h6"/><path d="M12 2v2"/></svg></button>
+<div class="pomo-panel" id="pomoPanel">
+<div class="pomo-drag" id="pomoDrag"><span class="pomo-drag-title">Pomodoro</span><div style="display:flex;align-items:center;gap:5px"><span style="color:var(--mt);font-size:12px">:::</span><button class="pomo-close" onclick="togglePomo()">&#10005;</button></div></div>
+<div class="pomo-body">
+<div class="pomo-mode"><button class="pomo-mode-btn on" onclick="setMode('work',this)">Focus 25m</button><button class="pomo-mode-btn brk" onclick="setMode('short',this)">Break 5m</button><button class="pomo-mode-btn brk" onclick="setMode('long',this)">Long 15m</button></div>
+<div class="pomo-ring"><svg width="140" height="140" viewBox="0 0 160 160"><circle cx="80" cy="80" r="70" fill="none" stroke="#1a1a28" stroke-width="5"/><circle id="pomoArc" cx="80" cy="80" r="70" fill="none" stroke="#F7B041" stroke-width="5" stroke-linecap="round" stroke-dasharray="439.82" stroke-dashoffset="0"/></svg><div class="pomo-ring-text"><div class="pomo-time" id="pomoTime">25:00</div><div class="pomo-label" id="pomoLabel">Focus time</div></div></div>
+<div class="pomo-controls"><button class="pomo-btn primary" id="pomoStart" onclick="pomoToggle()">Start</button><button class="pomo-btn" onclick="pomoSkip()">Skip</button><button class="pomo-btn danger" onclick="pomoReset()">Reset</button></div>
+</div>
+<div class="pomo-stats"><span>Sessions: <b id="pomoSessions">0</b></span><span>Today: <b id="pomoToday">0h 0m</b></span><span>Streak: <b id="pomoStreak">0</b></span></div>
+<div class="pomo-log" id="pomoLog"></div>
+</div>
+
+<script>
+function tog(el){el.classList.toggle('ck');upProg();save()}
+function stog(el){el.classList.toggle('ck');upProg();save()}
+function upProg(){const a=document.querySelectorAll('#tab-checklist .ci, #tab-slides .ci'),c=document.querySelectorAll('#tab-checklist .ci.ck, #tab-slides .ci.ck'),s=document.querySelectorAll('#tab-checklist .sub, #tab-slides .sub'),sc=document.querySelectorAll('#tab-checklist .sub.ck, #tab-slides .sub.ck'),total=a.length+s.length,done=c.length+sc.length,p=total>0?(done/total*100):0;document.getElementById('pBar').style.width=p+'%';document.getElementById('pLbl').textContent=done+' / '+total+' complete'}
+let svT=null;
+async function save(){
+  const ci=Array.from(document.querySelectorAll('#tab-checklist .ci')).map(e=>e.classList.contains('ck'));
+  const si=Array.from(document.querySelectorAll('#tab-checklist .sub')).map(e=>e.classList.contains('ck'));
+  const sci=Array.from(document.querySelectorAll('#tab-slides .ci')).map(e=>e.classList.contains('ck'));
+  const ssi=Array.from(document.querySelectorAll('#tab-slides .sub')).map(e=>e.classList.contains('ck'));
+  const d=JSON.stringify({ci,si,sci,ssi});
+  const t=document.getElementById('saveToast');
+  let ok=false;
+  try{
+    if(window.storage&&window.storage.set){const r=await window.storage.set('rb-hub-v5',d);if(r)ok=true}
+  }catch(e){}
+  if(!ok){try{localStorage.setItem('rb-hub-v5',d);ok=true}catch(e){}}
+  t.textContent=ok?'Saved':'Save failed';
+  t.style.color=ok?'var(--ok)':'var(--co)';
+  t.style.borderColor=ok?'rgba(46,173,142,.18)':'rgba(224,99,71,.18)';
+  t.classList.add('show');clearTimeout(svT);svT=setTimeout(()=>t.classList.remove('show'),1000);
+}
+async function load(){
+  let d=null;
+  try{
+    if(window.storage&&window.storage.get){const r=await window.storage.get('rb-hub-v5');if(r&&r.value)d=JSON.parse(r.value)}
+  }catch(e){}
+  if(!d){try{const raw=localStorage.getItem('rb-hub-v5');if(raw)d=JSON.parse(raw)}catch(e){}}
+  if(d){
+    const ci=document.querySelectorAll('#tab-checklist .ci'),si=document.querySelectorAll('#tab-checklist .sub');
+    const sci=document.querySelectorAll('#tab-slides .ci'),ssi=document.querySelectorAll('#tab-slides .sub');
+    if(d.ci)d.ci.forEach((v,i)=>{if(v&&ci[i])ci[i].classList.add('ck')});
+    if(d.si)d.si.forEach((v,i)=>{if(v&&si[i])si[i].classList.add('ck')});
+    if(d.sci)d.sci.forEach((v,i)=>{if(v&&sci[i])sci[i].classList.add('ck')});
+    if(d.ssi)d.ssi.forEach((v,i)=>{if(v&&ssi[i])ssi[i].classList.add('ck')});
+  }
+  upProg();
+}
+function switchTab(id){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.tp').forEach(t=>t.classList.remove('on'));document.querySelector(`.tab[onclick*="${id}"]`).classList.add('on');document.getElementById('tab-'+id).classList.add('on');if(id==='timeline')updateTimeline()}
+function switchPal(id){document.querySelectorAll('.pt').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.pv').forEach(t=>t.classList.remove('on'));document.querySelector(`.pt[onclick*="${id}"]`).classList.add('on');document.getElementById('pal-'+id).classList.add('on')}
+function copyHex(el){navigator.clipboard.writeText(el.textContent).then(()=>{const o=el.textContent;el.textContent='copied!';el.style.color='var(--ok)';setTimeout(()=>{el.textContent=o;el.style.color=''},700)})}
+function updateTimeline(){const now=new Date(),wkS=new Date('2026-04-05T09:00:00'),wkE=new Date('2026-04-05T21:30:00'),fwE=new Date('2026-04-10T11:00:00');document.getElementById('tlTime').textContent=now.toLocaleString('en-US',{weekday:'long',hour:'numeric',minute:'2-digit',hour12:true});const wP=Math.min(100,Math.max(0,((now-wkS)/(wkE-wkS))*100)),fP=Math.min(100,Math.max(0,((now-wkS)/(fwE-wkS))*100));document.getElementById('wkFill').style.width=wP+'%';document.getElementById('fwFill').style.width=fP+'%';document.getElementById('wkPct').textContent=Math.round(wP)+'%';document.getElementById('fwPct').textContent=Math.round(fP)+'%';const hM=Math.max(0,(wkE-now)/36e5),hT=Math.max(0,(fwE-now)/36e5);document.getElementById('tlSub').textContent=hM>0?Math.round(hM)+'h left in sprint · '+Math.round(hT)+'h to Thursday':'';const sa=document.getElementById('squeezeAlert');if(hM>0&&hM<4){sa.classList.add('show');document.getElementById('squeezeMsg').textContent='Under '+Math.round(hM)+'h left in today\'s sprint. Cut scope if needed.'}else if(hM<=0&&hT>0&&hT<24){sa.classList.add('show');document.getElementById('squeezeMsg').textContent='Under '+Math.round(hT)+'h to presentation. Focus slides + video.'}document.querySelectorAll('.tl-block').forEach(b=>{const s=new Date(b.dataset.start),e=new Date(b.dataset.end);b.classList.remove('done','active');if(now>=e)b.classList.add('done');else if(now>=s&&now<e)b.classList.add('active')});[{id:'satStatus',d:'2026-04-05'},{id:'monStatus',d:'2026-04-07'},{id:'tueStatus',d:'2026-04-08'},{id:'wedStatus',d:'2026-04-09'},{id:'thuStatus',d:'2026-04-10'}].forEach(x=>{const ds=new Date(x.d+'T00:00:00'),de=new Date(x.d+'T23:59:59'),el=document.getElementById(x.id);if(now>de){el.textContent='done';el.style.background='rgba(46,173,142,.08)';el.style.color='var(--ok)'}else if(now>=ds&&now<=de){el.textContent='today';el.style.background='rgba(247,176,65,.12)';el.style.color='var(--am)'}else{el.textContent='upcoming'}})}
+
+// POMODORO
+const P={modes:{work:{dur:25*60,label:'Focus time',color:'#F7B041'},short:{dur:5*60,label:'Short break',color:'#2EAD8E'},long:{dur:15*60,label:'Long break',color:'#0B86D1'}},mode:'work',tl:25*60,total:25*60,run:false,iv:null,sess:0,todayM:0,streak:0,log:[]};
+const AL=2*Math.PI*70;
+function togglePomo(){const p=document.getElementById('pomoPanel'),f=document.getElementById('pomoFab');p.classList.toggle('open');f.style.display=p.classList.contains('open')?'none':'flex'}
+function setMode(m,btn){if(P.run)return;document.querySelectorAll('.pomo-mode-btn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');P.mode=m;P.total=P.modes[m].dur;P.tl=P.total;document.getElementById('pomoArc').setAttribute('stroke',P.modes[m].color);rPomo()}
+function rPomo(){const m=Math.floor(P.tl/60),s=P.tl%60;document.getElementById('pomoTime').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');document.getElementById('pomoLabel').textContent=P.modes[P.mode].label;document.getElementById('pomoArc').setAttribute('stroke-dashoffset',AL*(1-(P.tl/P.total)));document.getElementById('pomoSessions').textContent=P.sess;const h=Math.floor(P.todayM/60),rm=P.todayM%60;document.getElementById('pomoToday').textContent=h+'h '+rm+'m';document.getElementById('pomoStreak').textContent=P.streak;document.getElementById('pomoFab').classList.toggle('active',P.run)}
+function pomoToggle(){if(P.run){clearInterval(P.iv);P.run=false;document.getElementById('pomoStart').textContent='Resume'}else{P.run=true;document.getElementById('pomoStart').textContent='Pause';P.iv=setInterval(()=>{P.tl--;if(P.tl<=0){clearInterval(P.iv);P.run=false;pomoComp()}rPomo()},1000)}rPomo();sPomo()}
+function pomoComp(){if(P.mode==='work'){P.sess++;P.todayM+=Math.round(P.total/60);P.streak++;P.log.unshift({dur:Math.round(P.total/60),time:new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true})});if(P.log.length>20)P.log.pop();rLog();const n=P.sess%4===0?'long':'short';P.mode=n;P.total=P.modes[n].dur;P.tl=P.total;document.querySelectorAll('.pomo-mode-btn').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.pomo-mode-btn')[n==='short'?1:2].classList.add('on');document.getElementById('pomoArc').setAttribute('stroke',P.modes[n].color)}else{P.mode='work';P.total=P.modes.work.dur;P.tl=P.total;document.querySelectorAll('.pomo-mode-btn').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.pomo-mode-btn')[0].classList.add('on');document.getElementById('pomoArc').setAttribute('stroke',P.modes.work.color)}document.getElementById('pomoStart').textContent='Start';rPomo();sPomo();try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=P.mode==='work'?660:880;g.gain.value=0.12;o.start();setTimeout(()=>{o.stop();c.close()},250)}catch(e){}}
+function pomoSkip(){clearInterval(P.iv);P.run=false;pomoComp()}
+function pomoReset(){clearInterval(P.iv);P.run=false;P.tl=P.total;document.getElementById('pomoStart').textContent='Start';rPomo();sPomo()}
+function rLog(){const el=document.getElementById('pomoLog');if(!P.log.length){el.innerHTML='';return}let h='<div class="pomo-log-title">Session log</div>';P.log.forEach(e=>{h+='<div class="pomo-log-item"><span class="log-task">'+e.dur+'m focus</span><span class="log-time">'+e.time+'</span></div>'});el.innerHTML=h}
+async function sPomo(){const d=JSON.stringify({mode:P.mode,tl:P.tl,total:P.total,sess:P.sess,todayM:P.todayM,streak:P.streak,log:P.log,td:new Date().toLocaleDateString()});try{if(window.storage&&window.storage.set)await window.storage.set('pomo-v5',d)}catch(e){}try{localStorage.setItem('pomo-v5',d)}catch(e){}}
+async function lPomo(){let d=null;try{if(window.storage&&window.storage.get){const r=await window.storage.get('pomo-v5');if(r&&r.value)d=JSON.parse(r.value)}}catch(e){}if(!d){try{const raw=localStorage.getItem('pomo-v5');if(raw)d=JSON.parse(raw)}catch(e){}}if(d){if(d.td!==new Date().toLocaleDateString()){d.todayM=0;d.streak=0}P.mode=d.mode||'work';P.total=d.total||25*60;P.tl=d.tl||P.total;P.sess=d.sess||0;P.todayM=d.todayM||0;P.streak=d.streak||0;P.log=d.log||[];const i=P.mode==='work'?0:P.mode==='short'?1:2;document.querySelectorAll('.pomo-mode-btn').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.pomo-mode-btn')[i].classList.add('on');document.getElementById('pomoArc').setAttribute('stroke',P.modes[P.mode].color);rPomo();rLog()}}
+
+// DRAG
+(function(){const p=document.getElementById('pomoPanel'),d=document.getElementById('pomoDrag');let dx=0,dy=0,dr=false;d.addEventListener('mousedown',e=>{if(e.target.closest('.pomo-close'))return;dr=true;const r=p.getBoundingClientRect();dx=e.clientX-r.left;dy=e.clientY-r.top;document.addEventListener('mousemove',mv);document.addEventListener('mouseup',()=>{dr=false;document.removeEventListener('mousemove',mv)},{once:true})});function mv(e){if(!dr)return;p.style.left=(e.clientX-dx)+'px';p.style.top=(e.clientY-dy)+'px';p.style.right='auto';p.style.bottom='auto'}})();
+
+load();lPomo();
+setInterval(()=>{if(document.getElementById('tab-timeline').classList.contains('on'))updateTimeline()},30000);
+</script>
+</body></html>
